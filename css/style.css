@@ -146,8 +146,8 @@ header .container {
 }
 
 .logo-with-image img {
-    width: 40px; 
-    height: 40px; 
+    width: 60px; 
+    height: 60px; 
     object-fit: contain; 
     transition: transform 0.3s ease; 
 }
@@ -217,8 +217,18 @@ main {
 }
 
 .hero {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
-                url('../images/dedo-de-deus.jpg') no-repeat center center/cover;
+    /* GRADIENTE E IMAGEM DE FUNDO */
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+                      url('../images/dedo-de-deus.jpg');
+    
+    /* PROPRIEDADES DE CONTROLE DO FUNDO */
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /* Ajuste fino da imagem de fundo */
+    background-position: center 40%;
+
+    /* --- Resto do seu código original --- */
     color: var(--light-text-color);
     text-align: center;
     padding: 8rem 0;
@@ -696,6 +706,49 @@ main {
     font-size: 0.95rem;
 }
 
+.event-details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    gap: 2.5rem;
+}
+
+.event-date-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.event-time {
+    background-color: #fff;
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-top: 8px;
+    padding: 4px 6px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+}
+
+
+
+.event-time::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: var(--primary-color);
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=%22currentColor%22><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/><path d="M13 7h-2v6h6v-2h-4V7z"/></svg>');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
 
 /* ---- LOGIN (REESTILIZADO E COM NOVAS MENSAGENS DE STATUS) ---- */
 .login-form {
@@ -857,8 +910,10 @@ footer {
 
 .footer-logo {
     display: block;
-    width: 50px;
-    height: 50px;
+    width: 65px;  
+    height: 65px; 
+    margin-left: auto;   
+    margin-right: auto;  
     margin-bottom: 10px;
     transition: transform 0.3s ease;
 }
@@ -992,4 +1047,8 @@ footer a:hover {
     .login-form .button { font-size: 0.95rem; padding: 0.7rem 1rem; margin-top: 1.8rem; }
     
     .footer-logo { width: 35px; height: 35px; }
+}
+
+.login-page footer {
+    display: none;
 }
